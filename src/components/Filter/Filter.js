@@ -1,4 +1,3 @@
-// import { connect } from 'react-redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { getFilter } from '../../redux/phonebook-selectors';
 import * as phonebookActions from '../../redux/phonebook-actions';
@@ -9,17 +8,13 @@ export default function Filter() {
     const dispatch = useDispatch();
     const onChange = e => dispatch(phonebookActions.changeFilter(e.target.value));
 
+
+
     return (
-        <div className={s.container}>
-            <label className={s.label}>
-                Find contacts by name
-        <input
-                    type="text"
-                    value={value}
-                    onChange={onChange}
-                    className={s.input}
-                />
-            </label>
-        </div>
+        <label>
+            <input className={s.input} type="text" value={value} onChange={onChange}
+                placeholder=" Fined contacts by name"
+            ></input>
+        </label>
     );
 }

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// import { connect } from 'react-redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { getContacts } from '../../redux/phonebook-selectors';
 import * as phonebookActions from '../../redux/phonebook-actions';
@@ -44,33 +43,36 @@ export default function ContactForm() {
     };
 
     return (
-        <form onSubmit={handleSubmit} className={s.form}>
-            <label className={s.formItem}>
-                Name
+        <div className={s.container}>
+            <form onSubmit={handleSubmit} className={s.form}>
+                <label className={s.label}>
+                    Name
         <input
-                    type="text"
-                    name="name"
-                    value={name}
-                    placeholder="Сontact name"
-                    onChange={e => setName(e.currentTarget.value)}
-                    className={s.input}
-                />
-            </label>
+                        type="text"
+                        name="name"
+                        value={name}
+                        placeholder="Сontact name"
+                        onChange={e => setName(e.currentTarget.value)}
+                        className={s.input}
+                    />
+                </label>
 
-            <label className={s.formItem}>
-                Number
+                <label className={s.label}>
+                    Number
         <input
-                    type="tel"
-                    name="number"
-                    value={number}
-                    placeholder="Сontact number"
-                    onChange={e => setNumber(e.currentTarget.value)}
-                    className={s.input}
-                />
-            </label>
-            <button type="submit" className={s.button}>
-                Add contact
+                        type="tel"
+                        name="number"
+                        value={number}
+                        placeholder="Сontact number"
+                        onChange={e => setNumber(e.currentTarget.value)}
+                        className={s.input}
+                    />
+                </label>
+                <button type="submit" className={s.button}>
+                    Add contact
       </button>
-        </form>
+            </form>
+        </div>
+
     );
 }
